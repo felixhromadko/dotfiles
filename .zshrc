@@ -9,6 +9,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 autoload -U +X compinit && compinit
 source <(kubectl completion zsh)
 alias ssh='TERM=xterm-256color ssh'
+eval $(thefuck --alias)
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME

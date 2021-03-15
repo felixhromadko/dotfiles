@@ -1,14 +1,18 @@
 #! /bin/sh
 
+killall polybar
+killall insync
 pgrep -x sxhkd > /dev/null || sxhkd &
+
 
 polybar main &
 polybar second &
-feh --bg-center Downloads/346690.jpg &
+feh --bg-center feh --bg-center ~/Pictures/bg.jpg &
 flameshot &
+insync start &
 
-bspc monitor DP-0 -d A C B D
-bspc monitor HDMI-0 -d C D
+# bspc monitor DP-0 -d A C B D
+bspc monitor HDMI-0 -d A B C D
 
 bspc config border_width         2
 bspc config window_gap          12
