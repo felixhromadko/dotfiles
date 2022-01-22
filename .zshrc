@@ -3,14 +3,18 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/fhr/.oh-my-zsh"
-export PATH="$PATH:/opt/OpenDrive"
-export PATH="$PATH:/home/fhr/.yarn/bin"
+alias ssh="TERM=xterm-256color ssh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-autoload -U +X compinit && compinit
-source <(kubectl completion zsh)
-alias ssh='TERM=xterm-256color ssh'
-eval $(thefuck --alias)
-# Set name of the theme to load --- if set to "random", it will
+alias dockerstop="docker kill \$(docker ps -q)"
+alias dockerc="docker compose"
+export PATH="$PATH:/home/fhr/.cargo/bin"
+export GOPRIVATE="github.com/dokedu/*"
+export ENCORE_INSTALL="/home/fhr/.encore"
+export PATH="$ENCORE_INSTALL/bin:$PATH"
+export DRONE_SERVER=https://drone.trail.group
+source .secrets
+ #Set name of the theme to load --- if set to "random", it will
+ #rt SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -105,3 +109,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source /usr/share/nvm/init-nvm.sh
+
+export PATH="$PATH:/home/fhr/anaconda3/bin:/home/fhr/.local/lib/python3.10/site-packages"

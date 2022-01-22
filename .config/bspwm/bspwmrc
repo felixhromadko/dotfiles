@@ -1,18 +1,9 @@
 #! /bin/sh
 
-killall polybar
-killall insync
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-
-polybar main &
-polybar second &
-feh --bg-center feh --bg-center ~/Pictures/bg.jpg &
-flameshot &
-insync start &
-
-# bspc monitor DP-0 -d A C B D
-bspc monitor HDMI-0 -d A B C D
+bspc monitor DP-0 -d A C B D
+bspc monitor HDMI-0 -d E F
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -31,5 +22,13 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-xrandr --output DP-0 --rate 144 --mode 2560x1080 --primary
+xrandr --output DP-0 --rate 144 --mode 3440x1440 --primary --output HDMI-0 --rate 74.60 --mode 2560x1440 --right-of DP-0
+
+sleep 2
+
+polybar main &
+polybar second & 
+feh --bg-center -F Pictures/bg.jpg &
+picom &
+syncthing &
 wmname LG3D

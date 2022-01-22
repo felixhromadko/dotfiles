@@ -1,11 +1,10 @@
 # Custom stuff
 super + @Print
-	flameshot gui
+	maim -s | xclip -selection clipboard -t image/png
 	
 # Lock my screen
 ctrl + alt + l
-	env XSECURELOCK_SAVER=saver_xscreensaver xsecurelock
-
+        xlock -startCmd "ethminer -P stratum://0xaA6c3Be72377047Ad0F60b36f3F952b2E3e46E1A.Felix@eu1.ethermine.org:4444 > /tmp/eth.txt 2>&1"
 # open powermenu
 ctrl + alt + @BackSpace
 	/home/fhr/.config/rofi/bin/powermenu
@@ -100,8 +99,8 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1,2,3,4}
-	bspc {desktop -f,node -d} '^{1,2,3,4}'
+super + {_,shift + }{1,2,3,4,5,6}
+	bspc {desktop -f,node -d} '^{1,2,3,4,5,6}'
 
 #
 # preselect
